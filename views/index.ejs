@@ -1,0 +1,20 @@
+<div class="notes">
+    <% if (notes.length > 0) { %>
+        <% notes.forEach(function(note) { %>
+            <div class="note">
+                <div class="note-header">
+                    <h2 class="note-title"><%= note.title %></h2>
+                    <div class="note-actions">
+                        <form action="/delete/<%= note.id %>" method="post" class="action-form">
+                            <a href="/edit/<%= note.id %>" class="note-btn note-btn-primary">Edit</a>
+                            <button class="note-btn note-btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
+                <p class="note-content"><%= note.content %></p>
+            </div>
+        <% }); %>
+    <% } else { %>
+        <p>No notes available.</p>
+    <% } %>
+</div>
